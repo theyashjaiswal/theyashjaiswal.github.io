@@ -42,7 +42,7 @@ export default function Greeting() {
                 <Button text="Contact me" href="#contact" />
                 {greeting.resumeLink && (
                   <Button
-                    text="See my resume"
+                    text="View resume"
                     newTab={true}
                     href={greeting.resumeLink}
                   />
@@ -50,15 +50,21 @@ export default function Greeting() {
               </div>
             </div>
           </div>
-          <div className="greeting-image-div">
+          {/*<div className="greeting-image-div">
             {illustration.animated ? (
               <DisplayLottie animationData={landingPerson} />
             ) : (
               <img
                 alt="man sitting on table"
-                src={require("../../assets/images/manOnTable.svg")}
+                src={require("../../assets/images/yash_2.jpeg")}
               ></img>
             )}
+            </div>*/}
+          <div className="greeting-image-div">
+            <img
+              alt="man sitting on table"
+              src={require("../../assets/images/yash_2.jpeg")}
+            ></img>
           </div>
         </div>
       </div>
