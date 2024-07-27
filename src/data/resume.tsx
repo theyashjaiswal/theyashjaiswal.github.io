@@ -8,9 +8,9 @@ export const DATA = {
   location: "Halifax, NS, CA",
   locationLink: "https://maps.app.goo.gl/rHe1MmGL5xBX8y1T9",
   description:
-    "Software Engineer 👨🏽‍💻 | Music Artist 🎙️🎵",
+    "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎵",
   summary:
-    "[I pursued a master's degree in Computer Science](/#education), [and have worked at various tech companies (service & product startup), as well as a government agency across India 🇮🇳 and Canada 🇨🇦](https://yashjaiswal.com).",
+    "Software engineer[ with 3.7 years of full-stack development experience, a background in various tech companies (both service and product startups), and experience with a government agency across India 🇮🇳 and Canada 🇨🇦. I hold a master’s degree in Computer Science and am also a passionate vocalist, music producer, and mix engineer.](/#education)",
   avatarUrl: "/me.jpg",
   skills: [
     "Angular",
@@ -170,7 +170,7 @@ export const DATA = {
       description:
         "I crafted a clean and sophisticated landing page.",
       technologies: [
-        "ReactJS", "Vercel"
+        "ReactJS", "Tailwind", "Vercel"
       ],
       links: [
         // {
@@ -180,7 +180,7 @@ export const DATA = {
         // },
         {
           type: "Source",
-          href: "https://github.com/theyashjaiswal/Halifax-Foodie",
+          href: "https://github.com/theyashjaiswal/loch-landing-page",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -290,7 +290,7 @@ export const DATA = {
         // },
         {
           type: "Source",
-          href: "https://github.com/theyashjaiswal/TutorPoint-MERN",
+          href: "https://github.com/theyashjaiswal/Expertire-MERN",
           icon: <Icons.github className="size-3" />,
         },
       ],
