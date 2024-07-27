@@ -81,8 +81,8 @@ export const DATA = {
       location: "Hyderabad, India (On-site)",
       title: "Software Engineer",
       logoUrl: "/kore-ai.svg",
-      start: "December 2023",
-      end: "April 2024",
+      start: "Dec 2023",
+      end: "Apr 2024",
       description:
         "",
     },
@@ -93,8 +93,8 @@ export const DATA = {
       location: "Halifax, Canada (Remote)",
       title: "IT Developer (CS-02)",
       logoUrl: "/cra.jpeg",
-      start: "December 2021",
-      end: "November 2023",
+      start: "Dec 2021",
+      end: "Nov 2023",
       description:
         "",
     },
@@ -105,8 +105,8 @@ export const DATA = {
       location: "Halifax, Canada (Remote)",
       title: "IT Developer Intern",
       logoUrl: "/cra.jpeg",
-      start: "September 2021",
-      end: "December 2021",
+      start: "Sep 2021",
+      end: "Dec 2021",
       description:
         "",
     },
@@ -117,8 +117,8 @@ export const DATA = {
       location: "Hyderabad, India (On-site)",
       title: "Systems Engineer",
       logoUrl: "/infosys.jpg",
-      start: "September 2018",
-      end: "February 2020",
+      start: "Sep 2018",
+      end: "Feb 2020",
       description:
         "",
     },

@@ -34,11 +34,19 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
               />
-              <BlurFadeText
+              {/* <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
-              />
+              /> */}
+               <BlurFade delay={BLUR_FADE_DELAY}>
+               <div className="flex flex-row flex-wrap gap-1">
+                  <p>Software Engineer 👨🏽‍💻 </p>
+                  <p>{' | '}</p>
+                  <p> Music Artist 🎙️🎵</p>
+                </div>
+               </BlurFade>
+                
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
                 <Avatar className="size-28 border">

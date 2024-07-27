@@ -31,7 +31,7 @@ export default function MusicPage() {
 
   return (
     <>
-      <div className=" md:block">
+      <div className=" md:block pt-4 mt-4">
       <Particles
         className="absolute inset-0"
         quantity={777}
