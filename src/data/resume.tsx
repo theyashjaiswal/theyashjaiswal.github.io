@@ -185,7 +185,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/Loch.mp4",
+      video: "/Landing Page.mp4",
     },
     {
       title: "Halifax Foodie",
