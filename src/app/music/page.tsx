@@ -68,8 +68,8 @@ export default function MusicPage() {
                       value="music"
                       className="border-none p-0 outline-none"
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1">
+                      <div className="flex items-center justify-between hidden md:block">
+                        <div className="space-y-1 hidden md:block">
                           <h2 className="text-xl font-semibold tracking-tight">
                             Listen Now
                           </h2>
