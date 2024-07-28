@@ -8,23 +8,27 @@ export const DATA = {
   location: "Halifax, NS, CA",
   locationLink: "https://maps.app.goo.gl/rHe1MmGL5xBX8y1T9",
   description:
-    "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎵",
+    "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎹🎵",
   summary:
-    "Software engineer[ with 3.7 years of full-stack development experience, a background in various tech companies (both service and product startups), and experience with a government agency across India 🇮🇳 and Canada 🇨🇦. I hold a master’s degree in Computer Science and am also a passionate vocalist, music producer, and mix engineer.](/#education)",
+    "Software engineer[ with 3+ years of full-stack development experience. I pursued a master’s degree in Computer Science and have worked at various tech companies (service and product startup) across India 🇮🇳 and Canada 🇨🇦.](#/education) [I am also a passionate vocalist, music producer, and mix engineer.](/music)",
   avatarUrl: "/me.jpg",
   skills: [
     "Angular",
     "React",
+    "React Native",
     "Next.js",
     "Typescript",
     "Javascript",
     "Node.js",
     "Java",
     "Python",
-    "Postgres",
     "MySQL",
+    "Postgres",
     "MongoDB",
-    "Docker"
+    "Docker",
+    "AWS",
+    "Google Cloud Platform",
+    "Firebase"
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -130,41 +134,21 @@ export const DATA = {
       degree: "Master's of Applied Computer Science",
       logoUrl: "/dalu.png",
       start: "2020",
-      end: "2022",
+      end: "2021",
     },
     {
       school: "Karunya Institute of Technology & Sciences",
       href: "https://www.karunya.edu/",
       degree: "Bachelor's of Technology in Computer Science & Engineering",
       logoUrl: "/kits.webp",
-      start: "2018",
-      end: "2014",
+      start: "2014",
+      end: "2018",
     },
   ],
   projects: [
     {
-      title: "XO Platform",
-      href: "https://kore.ai/platform/contact-center/",
-      dates: "Dec 2023 – Apr 2024",
-      active: true,
-      description:
-        "Contributed to the development and enhancement of the XO Platform, and XO Contact Centre focusing on scalability and user experience.",
-      technologies: [
-      "Angular","RxJS","TypeScript","JavaScript", "WebRTC", "Socket.io", "Nodejs","MongoDB"
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://kore.ai/platform/contact-center/",
-          icon: <Icons.globe className="size-3" />,
-        }
-      ],
-      image: "",
-      video: "/XO Contact Center.mp4",
-    },
-    {
       title: "Landing Page",
-      href: "",
+      href: "https://loch-landing-page-one.vercel.app",
       dates: "Nov 2023 – Dec 2023",
       active: true,
       description:
@@ -173,11 +157,11 @@ export const DATA = {
         "ReactJS", "Tailwind", "Vercel"
       ],
       links: [
-        // {
-        //   type: "Website",
-        //   href: "https://github.com/theyashjaiswal/Halifax-Foodie",
-        //   icon: <Icons.globe className="size-3" />,
-        // },
+        {
+          type: "Website",
+          href: "https://loch-landing-page-one.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
         {
           type: "Source",
           href: "https://github.com/theyashjaiswal/loch-landing-page",
@@ -185,7 +169,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/Landing Page.mp4",
+      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68819002def2a27e8/view?project=66a687e6001cebc9dbbc&mode=admin",
     },
     {
       title: "Halifax Foodie",
@@ -210,7 +194,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/Halifax Foodie.mp4",
+      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68831000a079709ad/view?project=66a687e6001cebc9dbbc&mode=admin",
     },
     {
       title: "Audio Splitter",
@@ -236,7 +220,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "/Audio Spleeter Demo.mp4",
+        "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6882100004c2e57d5/view?project=66a687e6001cebc9dbbc&mode=admin",
     },
     
     {
@@ -266,7 +250,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/Tutor Point.mp4",
+      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6880f000a93f19d37/view?project=66a687e6001cebc9dbbc&mode=admin"
     },
     {
       title: "Expertire",
@@ -296,7 +280,27 @@ export const DATA = {
       ],
       image: "",
       video:
-        "/Expertire.mp4",
+        "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6882800398f0d1ef8/view?project=66a687e6001cebc9dbbc&mode=admin",
+    },
+    {
+      title: "eyeVee",
+      href: "",
+      dates: "Dec 2017 – Mar 2018",
+      active: true,
+      description:
+        "Developed a web-based platform that connects institutions with industries for easy booking of industrial visits, bridging the gap between theoretical learning and practical experience. Institutions select from available offers, while industries post visit details and availability.",
+      technologies: [
+      "HTML","CSS","JavaScript", "Bootstrap", "PHP", "MySQL", "XAMPP"
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/theyashjaiswal/eyevee",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68d08002bad98cc15/view?project=66a687e6001cebc9dbbc&mode=admin",
     },
   ],
   hackathons: [

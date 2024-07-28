@@ -14,47 +14,95 @@ import { Separator } from "@/components/ui/separator"
 import { CoolMode } from "@/components/magicui/cool-mode";
 import { Mail, Phone, Send } from "lucide-react";
 
+import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
+import { RiNextjsFill } from "react-icons/ri";
+import { IoLogoFirebase, IoLogoJavascript } from "react-icons/io5";
+import { SiMysql } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { TbWorld } from "react-icons/tb";
+import { SiMongodb } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
+import { SiGooglecloud } from "react-icons/si";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const getIconNameFromSkill = (skill: any) => {
+    switch (skill.toLowerCase()) {
+      case 'angular':
+        return <FaAngular />;
+      case 'react':
+        return <FaReact />;
+      case 'node.js':
+        return <FaNode />;
+      case 'typescript':
+        return <SiTypescript />;
+      case 'next.js':
+        return <RiNextjsFill />;
+      case 'java':
+        return <FaJava />;
+      case 'javascript':
+        return <IoLogoJavascript />;
+      case 'python':
+        return <FaPython />;
+      case 'postgres':
+        return <BiLogoPostgresql />;
+      case 'mysql':
+        return <SiMysql />;
+      case 'mongodb':
+        return <SiMongodb />;
+      case 'firebase':
+        return <IoLogoFirebase />
+      case 'docker':
+        return <FaDocker />
+      case 'aws':
+        return <FaAws />;
+      case 'google cloud platform':
+        return <SiGooglecloud />;
+      // Add more cases as needed
+      default:
+        return <TbWorld />;
+    }
+
+  }
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <div className="fixed inset-0">
-      <RetroGrid />
+        <RetroGrid />
       </div>
       <section id="hero">
         <div className="mx-auto w-full max-w-6xl space-y-8">
-        <CoolMode>
-          <div className="gap-2 flex justify-space-between">
-            <div className="flex-col flex flex-1 space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-              />
-              {/* <BlurFadeText
+          <CoolMode>
+            <div className="gap-2 flex justify-space-between">
+              <div className="flex-col flex flex-1 space-y-1.5">
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                  yOffset={8}
+                  text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
+                />
+                {/* <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               /> */}
-               <BlurFade delay={BLUR_FADE_DELAY}>
-               <div className="flex flex-row flex-wrap gap-1">
-                  <p>Software Engineer 👨🏽‍💻 </p>
-                  <p>{' | '}</p>
-                  <p> Music Artist 🎙️🎵</p>
-                </div>
-               </BlurFade>
-                
-            </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
+                <BlurFade delay={BLUR_FADE_DELAY}>
+                  <div className="flex flex-row flex-wrap gap-1">
+                    <p>Software Engineer 👨🏽‍💻 </p>
+                    <p>{' | '}</p>
+                    <p> Music Artist 🎙️🎹🎵</p>
+                  </div>
+                </BlurFade>
+
+              </div>
+              <BlurFade delay={BLUR_FADE_DELAY}>
                 <Avatar className="size-28 border">
                   <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
                 </Avatar>
-            </BlurFade>
-          </div>
+              </BlurFade>
+            </div>
           </CoolMode>
         </div>
       </section>
@@ -75,7 +123,7 @@ export default function Page() {
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
-              key={work.company}
+              key={work.company + id}
               delay={BLUR_FADE_DELAY * 6 + id * 0.05}
             >
               <ResumeCard
@@ -122,11 +170,14 @@ export default function Page() {
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
+            {DATA.skills.map((skill, id) => {
+              return <>
+                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                  <Badge key={skill}>{skill} &nbsp; {getIconNameFromSkill(skill)}</Badge>
+                </BlurFade>
+
+              </>
+            })}
           </div>
         </div>
       </section>
@@ -139,7 +190,9 @@ export default function Page() {
                   My Projects
                 </div> */}
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Check out my Projects
+                  Check out my <span className="pointer-events-none z-10 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text text-center font-bold leading-none tracking-tighter text-transparent">
+                    Projects
+                  </span>
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   I&apos;ve worked on variety of projects, from simple
@@ -225,34 +278,34 @@ export default function Page() {
                 <SparklesText text="Get in Touch" />
               </h2>
               <div>
-      <div className="space-y-1 text-lg">
-        {`Let's Start Our Next Project Together!`}
-      </div>
-      <Separator className="my-4" />
-      <div className="flex h-5 justify-center space-x-4 text-sm">
-        <Link
-                  href="mailto:yashjaiswalofficial@gmail.com"
-                  className=""
-                >
-                   
-                 <Mail/>
-                </Link>{" "}
-     <Separator orientation="vertical" />
-        <Link
-                  href="tel:+17828822600"
-                  className=""
-                >
-                  <Phone/>
-                </Link>{" "}
-                <Separator orientation="vertical" />
-        <Link
-                  href="sms:+17828822600"
-                  className=""
-                >
-                  <Send/>
-                </Link>{" "}
-      </div>
-    </div>
+                <div className="space-y-1 text-lg">
+                  {`Let's Start Our Next Project Together!`}
+                </div>
+                <Separator className="my-4" />
+                <div className="flex h-5 justify-center space-x-4 text-sm">
+                  <Link
+                    href="mailto:yashjaiswalofficial@gmail.com"
+                    className=""
+                  >
+
+                    <Mail />
+                  </Link>{" "}
+                  <Separator orientation="vertical" />
+                  <Link
+                    href="tel:+17828822600"
+                    className=""
+                  >
+                    <Phone />
+                  </Link>{" "}
+                  <Separator orientation="vertical" />
+                  <Link
+                    href="sms:+17828822600"
+                    className=""
+                  >
+                    <Send />
+                  </Link>{" "}
+                </div>
+              </div>
             </div>
           </BlurFade>
         </div>
