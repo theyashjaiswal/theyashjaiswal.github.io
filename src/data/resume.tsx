@@ -61,19 +61,19 @@ export const DATA = {
 
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "",
-        icon: Icons.youtube,
-        navbar: true,
-      },
-      email: {
-        name: "Send Email",
-        url: "#",
-        icon: Icons.email,
+      // Youtube: {
+      //   name: "Youtube",
+      //   url: "",
+      //   icon: Icons.youtube,
+      //   navbar: true,
+      // },
+      // email: {
+      //   name: "Send Email",
+      //   url: "#",
+      //   icon: Icons.email,
 
-        navbar: false,
-      },
+      //   navbar: false,
+      // },
     },
   },
 

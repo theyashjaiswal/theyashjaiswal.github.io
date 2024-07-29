@@ -12,8 +12,8 @@ import RetroGrid from "@/components/magicui/retro-grid";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { Separator } from "@/components/ui/separator"
 import { CoolMode } from "@/components/magicui/cool-mode";
-import { CirclePlay, Mail, Phone, Send } from "lucide-react";
-import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact } from "react-icons/fa";
+import { CirclePlay, Mail, Phone, Send, X } from "lucide-react";
+import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact, FaWhatsapp } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
 import { IoLogoFirebase, IoLogoJavascript } from "react-icons/io5";
@@ -26,10 +26,77 @@ import { SiGooglecloud } from "react-icons/si";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
+import InstagramEmbed from './instagram';
+import { useState } from "react";
+import * as React from "react"
+import { Minus, Plus } from "lucide-react"
+import { Bar, BarChart, ResponsiveContainer } from "recharts"
+
+import { Button } from "@/components/ui/button"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
 
 const BLUR_FADE_DELAY = 0.04;
 
+const data = [
+  {
+    goal: 400,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 239,
+  },
+  {
+    goal: 300,
+  },
+  {
+    goal: 200,
+  },
+  {
+    goal: 278,
+  },
+  {
+    goal: 189,
+  },
+  {
+    goal: 349,
+  },
+]
+
 export default function Page() {
+  let openDialog: boolean = false;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [goal, setGoal] = React.useState(350)
+
+  function onClick(adjustment: number) {
+    setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
+
   const handleClick = () => {
     const duration = 5 * 1000;
     const animationEnd = Date.now() + duration;
@@ -57,6 +124,11 @@ export default function Page() {
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
       });
     }, 250);
+  };
+
+  const handleStoryView = () => {
+    console.log(('22'));
+    setIsLoaded(!isLoaded);
   };
 
   const getIconNameFromSkill = (skill: any) => {
@@ -127,11 +199,18 @@ export default function Page() {
 
               </div>
               <BlurFade delay={BLUR_FADE_DELAY}>
-                <Avatar className="size-28 border">
-                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <Avatar className="size-28 border bg-gradient-to-tr from-yellow-300 to-fuchsia-800 p-1 rounded-full" onClick={handleStoryView}>
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="bg-white block rounded-full p-1 hover:-rotate-1 transform transition duration-300" />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
                 </Avatar>
               </BlurFade>
+              {isLoaded ? <><div className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"></div>
+                <div className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-[425px]">
+                  <div className="fixed right-[0.15rem] hover:text-gray-400" onClick={handleStoryView}>  <X /></div>
+
+                  <InstagramEmbed permalink="https://www.instagram.com/reel/CwCNg8ih-XJ/?utm_source=ig_embed&amp;utm_campaign=loading" />
+                </div></> : null}
+
             </div>
           </CoolMode>
         </div>
@@ -311,7 +390,7 @@ export default function Page() {
                 {/* <div className="space-y-1 text-lg">
                   {`Let's Start Our Next Project Together!`}
                 </div> */}
-                <div className="transition-transform duration-300 ease-in-out hover:scale-150">
+                <div className="">
                   <AnimatedGradientText>
                     🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
                     <span
@@ -331,7 +410,6 @@ export default function Page() {
                   >
                     <div className="transition-transform duration-300 ease-in-out hover:scale-150">  <Mail style={{ width: '1.75rem', height: '1.75rem' }}
                     /></div>
-
                   </Link>{" "}
                   <Separator orientation="vertical" />
                   <Link
@@ -350,6 +428,15 @@ export default function Page() {
                     <div className="transition-transform duration-300 ease-in-out hover:scale-150">
                       <Phone style={{ width: '1.75rem', height: '1.75rem' }} /></div>
                   </Link>{" "}
+                  <Separator orientation="vertical" />
+                  <Link
+                    href="https://wa.me/message/LT5SX6EWLESIN1"
+                    className=""
+                  >
+                    <div className="transition-transform duration-300 ease-in-out hover:scale-150">
+                    <FaWhatsapp style={{ width: '1.75rem', height: '1.75rem' }} />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
