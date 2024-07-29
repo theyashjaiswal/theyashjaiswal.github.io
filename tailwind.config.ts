@@ -79,13 +79,18 @@ const config = {
             transform: "translate(-50%, -50%) scale(0.9)",
           },
         },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "grid": "grid 15s linear infinite",
         "ripple": "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
-
+        "gradient": "gradient 8s linear infinite"
       },
     },
   },
