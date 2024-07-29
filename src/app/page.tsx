@@ -204,6 +204,7 @@ export default function Page() {
                     <p>{' | '}</p>
                     <p> Music Artist 🎙️🎹🎵</p>
                   </div>
+                  <div className="flex flex-row flex-wrap gap-1"><p>📚CS @ DalU 🐯</p><p> | </p><p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p></div>
                 </BlurFade>
 
               </div>
