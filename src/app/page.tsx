@@ -202,10 +202,10 @@ export default function Page() {
                   <div className="flex flex-row flex-wrap gap-1">
                     <p>Software Engineer 👨🏽‍💻 </p>
                     <p>{' | '}</p>
-                    <p> Music Artist 🎙️🎹🎵</p>
+                    <p>Music Artist 🎙️🎹🎵</p>
                   </div>
-                  <div className="flex flex-row flex-wrap gap-1"><p>📚CS @ DalU 🐯</p><p> | </p><p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p></div>
-                  <div className="flex flex-row flex-wrap gap-1 pt-2 pl-2">
+                  <div className="flex flex-row flex-wrap gap-1"><p>📚 CS @ Dal 🐯</p><p> | </p><p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p></div>
+                  <div className="flex flex-row flex-wrap gap-1 pt-2">
                     <Button style={{
                       backgroundColor: 'rgb(0, 149, 246)', // Primary button color
                       color: 'white',
