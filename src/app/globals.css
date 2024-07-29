@@ -63,7 +63,48 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .circle {
+    @apply relative;
+    /* 100px by 100px */
+    display: inline-block;
+  }
+
+  .circle-svg {
+    fill: none;
+    stroke: #8a3ab9;
+    stroke-linecap: round;
+    stroke-width: 4;
+    stroke-dasharray: 9;
+    stroke-dashoffset: 4;
+    animation: stroke-draw 6s ease-out infinite alternate;
+    /* animation: stroke-draw 6s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate; */
+  }
+
+  .circle-still {
+    fill: none;
+    stroke: #8a3ab9;
+    stroke-linecap: round;
+    stroke-width: 4;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: stroke-draw 6s ease-out infinite alternate;
+    /* animation: stroke-draw 6s cubic-bezier(0.77, 0, 0.175, 1) infinite alternate; */
+  }
+
+  .circle-img {
+    @apply relative;
+    /* width: 70px; */
+    border-radius: 50%;
+    object-fit: cover;
+    top: -8.6rem;
+    margin: 1rem;
+    right: 0.6rem;
   }
 }

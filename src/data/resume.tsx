@@ -34,7 +34,7 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/resume.pdf", icon: NotebookIcon, label: "Download Resume" },
     { href: "/#projects", icon: CodeIcon, label: "Projects" },
-    { href: "/music", icon: Music4 , label: "Music" },
+    { href: "/music", icon: Music4, label: "Music" },
   ],
   contact: {
     email: "hello@example.com",
@@ -54,19 +54,19 @@ export const DATA = {
 
         navbar: true,
       },
-      X: {
-        name: "X",
-        url: "",
-        icon: Icons.x,
-
-        navbar: true,
-      },
-      // Youtube: {
-      //   name: "Youtube",
+      // X: {
+      //   name: "X",
       //   url: "",
-      //   icon: Icons.youtube,
+      //   icon: Icons.x,
+
       //   navbar: true,
       // },
+      Youtube: {
+        name: "Youtube",
+        url: "http://www.youtube.com/channel/UClK_OOx05LPM3ZoD-On4eFw",
+        icon: Icons.youtube,
+        navbar: true,
+      },
       // email: {
       //   name: "Send Email",
       //   url: "#",
@@ -204,7 +204,7 @@ export const DATA = {
       description:
         "Built a web application that splits the vocals and instrumental track from an audio file. Developed the front-end and back-end APIs, lambda functions for API authentication, and deployed the applications to AWS Services, and Heroku.",
       technologies: [
-        "ReactJS","Flask","Celery","Spleeter Library","DynamoDB","AWS Services", "Heroku", "Docker"
+        "ReactJS", "Flask", "Celery", "Spleeter Library", "DynamoDB", "AWS Services", "Heroku", "Docker"
       ],
       links: [
         // {
@@ -222,7 +222,7 @@ export const DATA = {
       video:
         "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6882100004c2e57d5/view?project=66a687e6001cebc9dbbc&mode=admin",
     },
-    
+
     {
       title: "Tutor Point",
       href: "",
@@ -260,7 +260,7 @@ export const DATA = {
       description:
         "Created a MERN(MongoDB, Express, React, Node) stack web application similar to Kijiji or OLX, where the Institutes can post their requirements for the Experts and Experts can contact the Institutes based on the Postings.",
       technologies: [
-       "ReactJS",
+        "ReactJS",
         "Node.js",
         "Express.js",
         "React Bootstrap",
@@ -290,7 +290,7 @@ export const DATA = {
       description:
         "Developed a web-based platform that connects institutions with industries for easy booking of industrial visits, bridging the gap between theoretical learning and practical experience. Institutions select from available offers, while industries post visit details and availability.",
       technologies: [
-      "HTML","CSS","JavaScript", "Bootstrap", "PHP", "MySQL", "XAMPP"
+        "HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL", "XAMPP"
       ],
       links: [
         {

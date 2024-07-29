@@ -84,13 +84,30 @@ const config = {
             backgroundPosition: "var(--bg-size) 0",
           },
         },
+        'stroke-draw': {
+          from: {
+            stroke: '#8a3ab9',
+            strokeDasharray: '1',
+          },
+          to: {
+            stroke: '#cd486b',
+            transform: 'rotate(180deg)',
+            strokeDasharray: '8',
+          },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "grid": "grid 15s linear infinite",
         "ripple": "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
-        "gradient": "gradient 8s linear infinite"
+        "gradient": "gradient 8s linear infinite",
+        "stroke-draw": 'stroke-draw 6s ease-out infinite alternate',
+        "spin": 'spin 3s ease infinite', // Default animation configuration
       },
     },
   },
