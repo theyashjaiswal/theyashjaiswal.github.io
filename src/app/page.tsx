@@ -12,7 +12,7 @@ import RetroGrid from "@/components/magicui/retro-grid";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { Separator } from "@/components/ui/separator"
 import { CoolMode } from "@/components/magicui/cool-mode";
-import { CirclePlay, Mail, Phone, Send, X } from "lucide-react";
+import { CirclePlay, Instagram, Mail, Phone, Send, X } from "lucide-react";
 import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact, FaWhatsapp } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
@@ -205,6 +205,19 @@ export default function Page() {
                     <p> Music Artist 🎙️🎹🎵</p>
                   </div>
                   <div className="flex flex-row flex-wrap gap-1"><p>📚CS @ DalU 🐯</p><p> | </p><p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p></div>
+                  <div className="flex flex-row flex-wrap gap-1">
+                    <Button style={{
+                      backgroundColor: 'rgb(0, 149, 246)', // Primary button color
+                      color: 'white',
+                    }}
+                      className="hover:bg-blue-600 gap-2 text-white font-bold py-2 px-4 rounded text-xs"
+                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgb(24, 119, 242)')}
+                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'rgb(0, 149, 246)')}
+                      onClick={() => {
+                        window.location.href = 'https://www.instagram.com/theyashjaiswal';
+                      }}
+                    >Follow <Instagram className="size-4" /></Button>
+                  </div>
                 </BlurFade>
 
               </div>
