@@ -12,7 +12,7 @@ import RetroGrid from "@/components/magicui/retro-grid";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { Separator } from "@/components/ui/separator"
 import { CoolMode } from "@/components/magicui/cool-mode";
-import { CirclePlay, Instagram, Mail, Phone, Send, X } from "lucide-react";
+import { ArrowDownToLine, CirclePlay, FileDown, Instagram, Mail, Phone, Send, X } from "lucide-react";
 import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact, FaWhatsapp } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
@@ -29,20 +29,14 @@ import confetti from "canvas-confetti";
 import InstagramEmbed from './instagram';
 import { useState } from "react";
 import * as React from "react"
-import { Minus, Plus } from "lucide-react"
-import { Bar, BarChart, ResponsiveContainer } from "recharts"
-
-import { Button } from "@/components/ui/button"
+import PulsatingButton from "@/components/ui/pulsating-button";
 import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { buttonVariants } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -90,6 +84,7 @@ const data = [
 
 export default function Page() {
   let openDialog: boolean = false;
+  const { theme, toggleTheme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isStoryClicked, setIsStoryClicked] = useState(false);
 
@@ -205,7 +200,7 @@ export default function Page() {
                     <p>Music Artist 🎙️🎹🎵</p>
                   </div>
                   <div className="flex flex-row flex-wrap gap-1"><p>📚 CS @ Dal 🐯</p><p> | </p><p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p></div>
-                  <div className="flex flex-row flex-wrap gap-1 pt-2">
+                  {/* <div className="flex flex-row flex-wrap gap-1 pt-2">
                     <Button style={{
                       backgroundColor: 'rgb(0, 149, 246)', // Primary button color
                       color: 'white',
@@ -217,7 +212,7 @@ export default function Page() {
                         window.location.href = 'https://www.instagram.com/theyashjaiswal';
                       }}
                     >Follow <Instagram className="size-4" /></Button>
-                  </div>
+                  </div> */}
                 </BlurFade>
 
               </div>
@@ -429,7 +424,7 @@ export default function Page() {
         </div>
       </section> */}
       <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pb-12">
+        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full pb-0">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3 mt-0">
               {/* <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -454,8 +449,8 @@ export default function Page() {
                     </span>
                     <CirclePlay className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                   </AnimatedGradientText></div>
-                <Separator className="my-4" />
-                <div className="flex h-5 justify-center space-x-4 text-sm">
+                {/* <Separator className="my-4" /> */}
+                <div className="flex h-5 justify-center space-x-4 my-4 text-sm items-center">
                   <Link
                     href="mailto:yashjaiswalofficial@gmail.com"
                     className=""
@@ -495,6 +490,42 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      <footer className="flex justify-center">
+        <BlurFade delay={BLUR_FADE_DELAY * 5}>
+          <hr
+            className="my-2 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
+          <p className="pt-4 mt-4 text-gray-400 text-center text-sm">
+            Built with {' '}
+            <a href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">shadcn/ui</a>, {' '}
+            <a href="https://magicui.design/" target="_blank" rel="noopener noreferrer">magic ui</a>.
+            Licensed under the {' '}
+            <a href="https://github.com/dillionverma/portfolio/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          </p>
+        </BlurFade>
+      </footer>
+      {/* <div className="">
+        <PulsatingButton className="flex p-2 z-30 shrink-0 grow-0 justify-around w-10 h-10 rounded-full
+                  fixed bottom-20 right-5
+                  mr-1 mb-5 lg:mr-5 lg:mb-5 xl:mr-10 xl:mb-10 text-sm"><div className="animate-bounce relative lg:right-[0.65rem] top-[0.25rem]">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href={"/resume.pdf"}
+                  download={"YashJasiwal_Resume.pdf"}
+                  className={cn(
+                    buttonVariants({ variant: "ghost", size: "icon" }),
+                    `size-12 hover:text-${(theme == 'dark') ? 'black' : 'white'} hover:bg-${(theme == 'dark') ? 'black' : 'white'}`
+                  )}
+
+                >     <FileDown />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Download Resume</p>
+              </TooltipContent>
+            </Tooltip>
+          </div></PulsatingButton>
+      </div> */}
     </main>
   );
 }

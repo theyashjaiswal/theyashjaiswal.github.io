@@ -99,6 +99,21 @@ const config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        pulse: {
+          "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
+          "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+        },
+        bounceSlow: {
+          '0%, 20%, 50%, 80%, 100%': {
+            transform: 'translateY(0)',
+          },
+          '40%': {
+            transform: 'translateY(-15px)',
+          },
+          '60%': {
+            transform: 'translateY(-5px)',
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -108,6 +123,9 @@ const config = {
         "gradient": "gradient 8s linear infinite",
         "stroke-draw": 'stroke-draw 6s ease-out infinite alternate',
         "spin": 'spin 3s ease infinite', // Default animation configuration
+        "pulse": "pulse var(--duration) ease-out infinite",
+        bounceSlow: 'bounceSlow 3s infinite', // Custom slow bounce
+
       },
     },
   },

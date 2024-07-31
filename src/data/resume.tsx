@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { CodeIcon, HomeIcon, Music4, NotebookIcon, PencilLine } from "lucide-react";
+import { CodeIcon, HomeIcon, Music4, NotebookIcon, FileDown } from "lucide-react";
 
 export const DATA = {
   name: "Yash Jaiswal",
@@ -31,10 +31,11 @@ export const DATA = {
     "Firebase"
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/resume.pdf", icon: NotebookIcon, label: "Download Resume" },
-    { href: "/#projects", icon: CodeIcon, label: "Projects" },
-    { href: "/music", icon: Music4, label: "Music" },
+    { href: "/", icon: HomeIcon,iconAnimationStyle:'animate-none', label: "Home" },
+    { href: "/resume.pdf", icon: FileDown, iconAnimationStyle:'animate-bounceSlow', label: "Download Resume" },
+    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/#projects", icon: CodeIcon,iconAnimationStyle:'animate-none', label: "Projects" },
+    { href: "/music", icon: Music4, iconAnimationStyle:'animate-none',label: "Music" },
   ],
   contact: {
     email: "hello@example.com",
@@ -152,7 +153,7 @@ export const DATA = {
       dates: "Nov 2023 – Dec 2023",
       active: true,
       description:
-        "I crafted a clean and sophisticated landing page.",
+        "I crafted a clean and sophisticated responsive landing page.",
       technologies: [
         "ReactJS", "Tailwind", "Vercel"
       ],
@@ -169,7 +170,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68819002def2a27e8/view?project=66a687e6001cebc9dbbc&mode=admin",
+      video: "/LandingPage.webm",
     },
     {
       title: "Halifax Foodie",
@@ -194,7 +195,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68831000a079709ad/view?project=66a687e6001cebc9dbbc&mode=admin",
+      video: "/HalifaxFoodie.webm",
     },
     {
       title: "Audio Splitter",
@@ -220,7 +221,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6882100004c2e57d5/view?project=66a687e6001cebc9dbbc&mode=admin",
+        "/AudioSplitter.webm",
     },
 
     {
@@ -250,7 +251,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6880f000a93f19d37/view?project=66a687e6001cebc9dbbc&mode=admin"
+      video: "/TutorPoint.webm"
     },
     {
       title: "Expertire",
@@ -280,7 +281,7 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a6882800398f0d1ef8/view?project=66a687e6001cebc9dbbc&mode=admin",
+        "/Expertire.webm",
     },
     {
       title: "eyeVee",
@@ -300,7 +301,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://cloud.appwrite.io/v1/storage/buckets/66a687f6001965c8d98c/files/66a68d08002bad98cc15/view?project=66a687e6001cebc9dbbc&mode=admin",
+      video: "/Eyevee.webm",
     },
   ]
 } as const;
