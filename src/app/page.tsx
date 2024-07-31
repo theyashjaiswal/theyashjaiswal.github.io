@@ -77,7 +77,7 @@ const data = [
 
 export default function Page() {
   let openDialog: boolean = false;
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isStoryClicked, setIsStoryClicked] = useState(false);
 
