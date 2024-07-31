@@ -28,14 +28,7 @@ import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 import InstagramEmbed from './instagram';
 import { useState } from "react";
-import * as React from "react"
-import PulsatingButton from "@/components/ui/pulsating-button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { buttonVariants } from "@/components/ui/button";
+import * as React from "react";
 import { useTheme } from "next-themes";
 
 const BLUR_FADE_DELAY = 0.04;
