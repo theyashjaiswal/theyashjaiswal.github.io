@@ -12,7 +12,7 @@ import RetroGrid from "@/components/magicui/retro-grid";
 import SparklesText from "@/components/magicui/sparkles-text";
 import { Separator } from "@/components/ui/separator"
 import { CoolMode } from "@/components/magicui/cool-mode";
-import { ArrowDownToLine, CirclePlay, FileDown, Instagram, Mail, Phone, Send, X } from "lucide-react";
+import { ArrowDownToLine, ArrowUp, CirclePlay, FileDown, Instagram, Mail, MessageCircle, Phone, Send, SendHorizontal, X } from "lucide-react";
 import { FaAngular, FaAws, FaJava, FaNode, FaPython, FaReact, FaWhatsapp } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
@@ -27,9 +27,15 @@ import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 import InstagramEmbed from './instagram';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as React from "react";
 import { useTheme } from "next-themes";
+import { buttonVariants } from "@/components/ui/button";
+import PulsatingButton from "@/components/ui/pulsating-button";
+
+type FormData = {
+  message: string;
+};
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -76,15 +82,225 @@ const data = [
 ]
 
 export default function Page() {
+  const [formData, setFormData] = useState<FormData>({ message: '' });
+
+  const writerRef = React.useRef(null);
+  const [darkMode, setDarkMode] = useState(false);
+  const [msgsLoaded, setMsgsLoaded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [userTyping, setUserTyping] = useState(false);
+  const [userMessage, setUserMessage] = useState('');
+
+  const containerRef = React.useRef(null);
+  const endOfMessagesRef = React.useRef(null);
+
+  const [userData, setUserData] = useState({
+    userAgent: '',
+    referrer: '',
+    screenResolution: '',
+    language: '',
+    timezone: '',
+    deviceType: '',
+    location: '',
+    ip: '',
+    userTime:'',
+    date:''
+  });
+
+  useEffect(() => {
+    // Get user agent
+    const userAgent = navigator.userAgent;
+
+    // Get referrer URL
+    const referrer = document.referrer;
+
+    // Get screen resolution and viewport size
+    const screenResolution = `${window.screen.width}x${window.screen.height}`;
+
+    // Get language and locale
+    const language = navigator.language;
+
+    // Get timezone
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    // Determine device type
+    const deviceType = /Mobi|Android/i.test(userAgent) ? 'Mobile' : 'Desktop';
+
+    const userTime = new Date().toLocaleTimeString();
+
+    const date = new  Date().toDateString();
+
+    // Get IP address and location (Using a third-party service like ipify)
+    fetch('https://api.ipify.org?format=json')
+      .then((response) => response.json())
+      .then((data) => {
+        setUserData((prevData) => ({
+          ...prevData,
+          ip: data.ip,
+        }));
+
+        // Optionally, use another API to get geolocation from the IP
+        fetch(`https://ipapi.co/${data.ip}/json/`)
+          .then((response) => response.json())
+          .then((locationData) => {
+            setUserData((prevData) => ({
+              ...prevData,
+              location: `${locationData.city}, ${locationData.country}`,
+            }));
+          });
+      });
+
+    // Set all captured data
+    setUserData((prevData) => ({
+      ...prevData,
+      userAgent,
+      referrer,
+      screenResolution,
+      language,
+      timezone,
+      deviceType,
+      userTime,
+      date
+    }));
+  }, []);
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      if (userMessage.trim() === "") {
+        return
+      }
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({'message':userMessage.trim(),'userData':userData}),
+      });
+
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        addMessage(userMessage);
+        // Reset form or show success message
+        setFormData({ message: '' });
+      } else {
+        console.error('Failed to submit form');
+        // Show error message
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
+  const Writing = () => (
+    <div className={`flex items-center justify-end h-10 w-24 bg-gray-200 rounded-full  order-last  `}>
+      <div className={`dot  ${theme === 'dark' ? 'bg-black' : 'bg-gray-400'} opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-0`}></div>
+      <div className={`dot ${theme === 'dark' ? 'bg-black' : 'bg-gray-400'} opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-150`}></div>
+      <div className={`dot ${theme === 'dark' ? 'bg-black' : 'bg-gray-400'} opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-300`}></div>
+    </div>
+  );
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') { // or event.code === 'Enter'
+      event.preventDefault(); // Prevents the default action (e.g., form submission)
+      console.log('Enter key pressed');
+      handleSubmit(event);
+     
+
+      // Handle the Enter key press here
+    }
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+    console.log('Dialog was closed');
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  const openChatDialog = () => {
+
+    const showMessage = (id) => {
+      const message = document.getElementById(`message-${id}`);
+      if (message) {
+        message.style.display = 'block';
+        doBounce(message, 1, '4px', 150);
+      }
+    };
+
+    const doBounce = (element, times, distance, speed) => {
+      for (let i = 0; i < times; i++) {
+        element.animate(
+          [{ marginTop: `-=${distance}` }, { marginTop: `+=${distance}` }],
+          { duration: speed }
+        );
+      }
+    };
+
+    const start = () => {
+      const messages = document.querySelectorAll('.message');
+      let timeOut = 1000;
+
+      messages.forEach((_, index) => {
+        if (index + 1 === messages.length) {
+          setTimeout(() => {
+            if (writerRef.current) {
+              writerRef.current.remove();
+            }
+          }, timeOut);
+        }
+        setTimeout(() => {
+          showMessage(index + 1);
+        }, timeOut);
+        timeOut += 1000;
+      });
+    };
+
+    start();
+    setTimeout(() => {
+      setMsgsLoaded(true);
+    }, 3000);
+
+    const myElement: any = document.getElementById('replay');
+    if (myElement) {
+      myElement.onclick = start;
+    }
+  }
+
+
+
   let openDialog: boolean = false;
   const { theme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isStoryClicked, setIsStoryClicked] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
 
   const [goal, setGoal] = React.useState(350)
 
   function onClick(adjustment: number) {
     setGoal(Math.max(200, Math.min(400, goal + adjustment)))
+  }
+
+  const addMessage = (userMessage) => {
+
+    if (userMessage.trim() === "") {
+      return
+    }
+    const newDiv = document.createElement('div');
+    newDiv.className = 'message block max-w-[90%] mb-2 bg-[#0E7AFE] font-roboto text-base text-white rounded-full py-2 px-4 order-1';
+    newDiv.innerText = userMessage;
+    // Append the new div to the container
+    if (containerRef.current) {
+      containerRef.current.appendChild(newDiv);
+    }
+    setTimeout(() => { setUserMessage('') }, 100)
   }
 
   const handleClick = () => {
@@ -168,7 +384,7 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <div className="fixed inset-0">
-        <RetroGrid />
+        {/* <RetroGrid /> */}
       </div>
       <section id="hero">
         <div className="mx-auto w-full max-w-6xl space-y-8">
@@ -244,8 +460,8 @@ export default function Page() {
                   />
                 </div>
               </BlurFade>
-              {isLoaded ? <><div className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"></div>
-                <div className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg sm:max-w-[425px]">
+              {isLoaded ? <><div className="fixed min-h-full inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"></div>
+                <div className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
                   <div className="fixed right-[0.15rem] hover:text-gray-400" onClick={handleStoryClose}>  <X /></div>
 
                   <InstagramEmbed permalink="https://www.instagram.com/reel/CwCNg8ih-XJ/?utm_source=ig_embed&amp;utm_campaign=loading" />
@@ -496,29 +712,86 @@ export default function Page() {
           </p>
         </BlurFade>
       </footer>
-      {/* <div className="">
+
+      <div>
+
+
+
+        {isOpen ? <><div className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"></div>
+          <div className="fixed h-[100%]  overflow-hidden left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
+            <div className="fixed right-[0.20rem] top-[0.20rem] hover:text-gray-400" onClick={() => { setIsOpen(false); if (open) { setMsgsLoaded(false) } }}>  <X /></div>
+            <div className=" flex-col overflow-scroll">
+              <div className="pl-1 text-left p-6 max-w-[90%]">
+                <div className={`message hidden mb-2 bg-gray-200 ${theme === 'dark' ? 'text-black' : ''} font-roboto text-base rounded-full py-2 px-4 `} id="message-1">
+                  Hi, there
+                </div>
+                <div className={`message hidden mb-2 bg-gray-200  ${theme === 'dark' ? 'text-black' : ''}  font-roboto text-base rounded-full py-2 px-4`} id="message-2">
+                Contact me at <a href="mailto:yashjaiswalofficial@gmail.com" className="text-blue-700" target="blank">yashjaiswalofficial@gmail.com</a>.
+                </div>
+                <div className={`message hidden mb-2 bg-gray-200  ${theme === 'dark' ? 'text-black' : ''}  font-roboto text-base rounded-full py-2 px-4`} id="message-3">
+                  Otherwise, feel free to drop me a message below 📤
+                </div>
+               
+                <div className="writing-container flex items-center justify-start">
+                  {(!msgsLoaded) ? <Writing /> : null}
+
+                </div>
+              </div>
+              <div className="flex flex-col justify-end items-end" ref={containerRef}> </div>
+              <div> {(userTyping) ? (<div className="flex justify-end content-end items-end" ref={endOfMessagesRef}><Writing /></div>) : null} </div>
+            </div>
+
+            <div className="footer flex flex-row sm:justify-center justify-center w-full items-end">
+             
+                <form id="chat-form"
+                className={`flex items-center p-2 transition-colors ${darkMode ? "bg-gray-800" : ""} relative  w-full`}
+                  onSubmit={handleSubmit}
+                >
+                  <input type="text"
+                    id="user-input"
+                    name="message"
+                    className={`flex-1 border px-4 py-2 rounded-full text-sm outline-none  text-${theme === 'dark' ? 'white' : 'black'} ${theme === 'dark'
+                      ? "bg-gray-700 border-gray-600"
+                      : "bg-gray-200 border-gray-400"
+                      } transition-colors`}
+                    placeholder="Type your message..."
+                    value={userMessage}
+                    onChange={(e) => {setUserMessage(e.target.value)}}
+                    onKeyPress={(e) => {
+                      setUserMessage(e.currentTarget.value); endOfMessagesRef?.current?.scrollIntoView({ behavior: 'smooth' }); setUserTyping(true);
+                      setTimeout(() => { setUserTyping(false) }, 1200)
+                    }}
+                    onKeyDown={handleKeyDown}
+                  />
+                  <button type="submit"
+                    className={`send bg-[#0E7AFE] text-${theme === 'dark' ? 'black' : 'white'} font-semibold w-8 h-8 rounded-full flex items-center justify-center absolute right-4 top-1/2 transform -translate-y-1/2`}
+                  >
+                    <ArrowUp className="transition-transform duration-300 ease-in-out hover:text-gray-200" onClick={() => { addMessage(userMessage) }} />
+                  </button>
+                </form>
+            </div>
+
+            {/* <InstagramEmbed permalink="https://www.instagram.com/reel/CwCNg8ih-XJ/?utm_source=ig_embed&amp;utm_campaign=loading" /> */}
+          </div></> : null}
+
         <PulsatingButton className="flex p-2 z-30 shrink-0 grow-0 justify-around w-10 h-10 rounded-full
                   fixed bottom-20 right-5
-                  mr-1 mb-5 lg:mr-5 lg:mb-5 xl:mr-10 xl:mb-10 text-sm"><div className="animate-bounce relative lg:right-[0.65rem] top-[0.25rem]">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={"/resume.pdf"}
-                  download={"YashJasiwal_Resume.pdf"}
-                  className={cn(
-                    buttonVariants({ variant: "ghost", size: "icon" }),
-                    `size-12 hover:text-${(theme == 'dark') ? 'black' : 'white'} hover:bg-${(theme == 'dark') ? 'black' : 'white'}`
-                  )}
-
-                >     <FileDown />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Download Resume</p>
-              </TooltipContent>
-            </Tooltip>
+                  mr-1 mb-5 lg:mr-5 lg:mb-5 xl:mr-10 xl:mb-10 text-sm"  onClick={() => {
+            setIsOpen(true);
+            setTimeout(() => {
+              openChatDialog()
+            }, 1000)
+          }}><div className=" relative right-[0.65rem]">
+            <div
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                `size-12 hover:text-${(theme == 'dark') ? 'black' : 'white'} hover:bg-${(theme == 'dark') ? 'black' : 'white'} transition-transform duration-300 ease-in-out hover:scale-125`
+              )} >
+              <MessageCircle style={{ width: '1.75rem', height: '1.75rem' }} />
+            </div>
           </div></PulsatingButton>
-      </div> */}
+
+      </div>
     </main>
   );
 }
