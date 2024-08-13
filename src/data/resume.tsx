@@ -189,7 +189,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/SaasLanding.webm",
+      video: "/SaasLandingPage.webm",
     },
     {
       title: "Exclusive Signup - Landing Page",
