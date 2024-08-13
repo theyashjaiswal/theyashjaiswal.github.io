@@ -1,5 +1,11 @@
 import { Icons } from "@/components/icons";
-import { CodeIcon, HomeIcon, Music4, NotebookIcon, FileDown } from "lucide-react";
+import {
+  CodeIcon,
+  HomeIcon,
+  Music4,
+  NotebookIcon,
+  FileDown,
+} from "lucide-react";
 
 export const DATA = {
   name: "Yash Jaiswal",
@@ -7,8 +13,7 @@ export const DATA = {
   url: "https://yashjaiswal.com",
   location: "Halifax, NS, CA",
   locationLink: "https://maps.app.goo.gl/rHe1MmGL5xBX8y1T9",
-  description:
-    "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎹🎵",
+  description: "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎹🎵",
   summary:
     "Software engineer[ with 3+ years of full-stack development experience. I pursued a master’s degree in Computer Science and have worked at various tech companies (service and product startup).](#/education) [I am also a passionate vocalist, music producer, and mix engineer.](/music)",
   avatarUrl: "/me.jpg",
@@ -28,14 +33,34 @@ export const DATA = {
     "Docker",
     "AWS",
     "Google Cloud Platform",
-    "Firebase"
+    "Firebase",
   ],
   navbar: [
-    { href: "/", icon: HomeIcon,iconAnimationStyle:'animate-none', label: "Home" },
-    { href: "/resume.pdf", icon: FileDown, iconAnimationStyle:'animate-bounceSlow', label: "Download Resume" },
+    {
+      href: "/",
+      icon: HomeIcon,
+      iconAnimationStyle: "animate-none",
+      label: "Home",
+    },
+    {
+      href: "/resume.pdf",
+      icon: FileDown,
+      iconAnimationStyle: "animate-bounceSlow",
+      label: "Download Resume",
+    },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "/#projects", icon: CodeIcon,iconAnimationStyle:'animate-none', label: "Projects" },
-    { href: "/music", icon: Music4, iconAnimationStyle:'animate-none',label: "Music" },
+    {
+      href: "/#projects",
+      icon: CodeIcon,
+      iconAnimationStyle: "animate-none",
+      label: "Projects",
+    },
+    {
+      href: "/music",
+      icon: Music4,
+      iconAnimationStyle: "animate-none",
+      label: "Music",
+    },
   ],
   contact: {
     email: "hello@example.com",
@@ -88,8 +113,7 @@ export const DATA = {
       logoUrl: "/kore-ai.svg",
       start: "Dec 2023",
       end: "Apr 2024",
-      description:
-        "",
+      description: "",
     },
     {
       company: "Canada Revenue Agency",
@@ -100,8 +124,7 @@ export const DATA = {
       logoUrl: "/cra.jpeg",
       start: "Dec 2021",
       end: "Nov 2023",
-      description:
-        "",
+      description: "",
     },
     {
       company: "Canada Revenue Agency",
@@ -112,8 +135,7 @@ export const DATA = {
       logoUrl: "/cra.jpeg",
       start: "Sep 2021",
       end: "Dec 2021",
-      description:
-        "",
+      description: "",
     },
     {
       company: "Infosys",
@@ -124,8 +146,7 @@ export const DATA = {
       logoUrl: "/infosys.jpg",
       start: "Sep 2018",
       end: "Feb 2020",
-      description:
-        "",
+      description: "",
     },
   ],
   education: [
@@ -148,15 +169,36 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Landing Page",
+      title: "Saas Product Landing Page",
+      href: "https://saas-landing-yash.vercel.app/",
+      dates: "July 2024 - Aug 2024",
+      active: true,
+      description:
+        "I built a SaaS demo responsive landing page design inspired by Tribe.",
+      technologies: ["Next.js", "Tailwind", "Vercel"],
+      links: [
+        {
+          type: "Website",
+          href: "https://saas-landing-yash.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/theyashjaiswal/Saas-Landing-Page",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/saas-landing.webm",
+    },
+    {
+      title: "Exclusive Signup - Landing Page",
       href: "https://loch-landing-page-one.vercel.app",
       dates: "Nov 2023 – Dec 2023",
       active: true,
       description:
         "I crafted a clean and sophisticated responsive landing page.",
-      technologies: [
-        "ReactJS", "Tailwind", "Vercel"
-      ],
+      technologies: ["ReactJS", "Tailwind", "Vercel"],
       links: [
         {
           type: "Website",
@@ -180,7 +222,12 @@ export const DATA = {
       description:
         "Built a Serverless application that facilitates an online food ordering system with features such as chatbot, ML food recipe tagging, multi-factor authentication, report generation, and visualization.",
       technologies: [
-        "ReactJS", "NodeJS", "Java", "Docker", "AWS Lambda functions", "Google Cloud Run"
+        "ReactJS",
+        "NodeJS",
+        "Java",
+        "Docker",
+        "AWS Lambda functions",
+        "Google Cloud Run",
       ],
       links: [
         // {
@@ -205,7 +252,14 @@ export const DATA = {
       description:
         "Built a web application that splits the vocals and instrumental track from an audio file. Developed the front-end and back-end APIs, lambda functions for API authentication, and deployed the applications to AWS Services, and Heroku.",
       technologies: [
-        "ReactJS", "Flask", "Celery", "Spleeter Library", "DynamoDB", "AWS Services", "Heroku", "Docker"
+        "ReactJS",
+        "Flask",
+        "Celery",
+        "Spleeter Library",
+        "DynamoDB",
+        "AWS Services",
+        "Heroku",
+        "Docker",
       ],
       links: [
         // {
@@ -220,8 +274,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "/AudioSplitter.webm",
+      video: "/AudioSplitter.webm",
     },
 
     {
@@ -236,7 +289,7 @@ export const DATA = {
         "Node.js",
         "Express.js",
         "Material Desing for Bootstrap",
-        "MongoDB"
+        "MongoDB",
       ],
       links: [
         // {
@@ -251,7 +304,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/TutorPoint.webm"
+      video: "/TutorPoint.webm",
     },
     {
       title: "Expertire",
@@ -265,7 +318,7 @@ export const DATA = {
         "Node.js",
         "Express.js",
         "React Bootstrap",
-        "MongoDB"
+        "MongoDB",
       ],
       links: [
         // {
@@ -280,8 +333,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        "/Expertire.webm",
+      video: "/Expertire.webm",
     },
     {
       title: "eyeVee",
@@ -291,7 +343,13 @@ export const DATA = {
       description:
         "Developed a web-based platform that connects institutions with industries for easy booking of industrial visits, bridging the gap between theoretical learning and practical experience. Institutions select from available offers, while industries post visit details and availability.",
       technologies: [
-        "HTML", "CSS", "JavaScript", "Bootstrap", "PHP", "MySQL", "XAMPP"
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Bootstrap",
+        "PHP",
+        "MySQL",
+        "XAMPP",
       ],
       links: [
         {
@@ -303,5 +361,5 @@ export const DATA = {
       image: "",
       video: "/Eyevee.webm",
     },
-  ]
+  ],
 } as const;
