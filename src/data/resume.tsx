@@ -174,7 +174,7 @@ export const DATA = {
       dates: "July 2024 - Aug 2024",
       active: true,
       description:
-        "Built a responsive SaaS landing page template, with design inspired by Tribe.",
+        "Built a responsive SaaS product landing page template, with design inspired by Tribe.",
       technologies: ["Next.js", "Tailwind", "Framer Motion", "Vercel"],
       links: [
         {
@@ -189,7 +189,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/SaasLandingPageTemplate.webm",
+      video: "/SaasTemplate.webm",
     },
     {
       title: "Exclusive Signup - Landing Page",
