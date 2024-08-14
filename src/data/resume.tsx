@@ -169,7 +169,7 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Saas Product Landing Page",
+      title: "Saas Product - Landing Page Template",
       href: "https://saas-landing-yash.vercel.app/",
       dates: "July 2024 - Aug 2024",
       active: true,
@@ -189,7 +189,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "/SaasLandingPage.webm",
+      video: "/SaasLandingPageTemplate.webm",
     },
     {
       title: "Exclusive Signup - Landing Page",
