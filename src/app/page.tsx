@@ -344,7 +344,7 @@ export default function Page() {
     imgDiv.src =
       "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNpcmNsZS11c2VyIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTAiIHI9IjMiLz48cGF0aCBkPSJNNyAyMC42NjJWMTlhMiAyIDAgMCAxIDItMmg2YTIgMiAwIDAgMSAyIDJ2MS42NjIiLz48L3N2Zz4=";
     imgDiv.className =
-      "aspect-square h-full w-full dark:bg-white/80 bg-black/10";
+      "aspect-square h-full w-full dark:bg-white/90 bg-black/10";
     finalDiv.append(imgDiv);
     finalGrandDiv.append(finalDiv);
     finalGrandDiv.appendChild(newDiv);
@@ -838,8 +838,8 @@ export default function Page() {
                 {" "}
                 <X />
               </div>
-              <div className="flex-col overflow-scroll">
-                <div className="text-left p-6 flex flex-col gap-4 w-fit">
+              <div className="flex-col overflow-auto">
+                <div className="text-left flex flex-col gap-4 w-auto">
                   <div className="flex flex-row gap-2 items-end">
                     <div
                       id="imageLogo-1"
@@ -926,13 +926,9 @@ export default function Page() {
                 >
                   {" "}
                 </div>
-                <div>
-                  {" "}
+                <div ref={endOfMessagesRef}>
                   {userTyping ? (
-                    <div
-                      className="flex justify-end content-end items-end"
-                      ref={endOfMessagesRef}
-                    >
+                    <div className="flex justify-end content-end items-end">
                       <Writing />
                     </div>
                   ) : null}{" "}
