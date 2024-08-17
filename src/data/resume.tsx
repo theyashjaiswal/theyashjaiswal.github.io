@@ -113,7 +113,10 @@ export const DATA = {
       logoUrl: "/kore-ai.svg",
       start: "Dec 2023",
       end: "Apr 2024",
-      description: "",
+      description: `Contributed to the development and enhancement of the XO Platform, and XO Contact Centre focusing on scalability and user experience.
+\n Products: Unified XO Platform, XO Contact Center
+\n Skills: Angular 15, RxJS, TypeScript, JavaScript, WebRTC, WebSockets, Npm 
+`,
     },
     {
       company: "Canada Revenue Agency",
@@ -124,7 +127,10 @@ export const DATA = {
       logoUrl: "/cra.jpeg",
       start: "Dec 2021",
       end: "Nov 2023",
-      description: "",
+      description: `Significantly Contributed to the analysis, design and development of the 'Change My Return' feature on the Canada Revenue Agency's My Account Portal. Played a key role in implementing the front-end using Angular and integrating back-end services with Java.
+\nThis feature improved the user experience by making it easier for taxpayers to modify their return submissions and claims, enhancing overall platform efficiency and usability.
+\nOverview - https://www.canada.ca/en/revenue-agency/services/e-services/digital-services-individuals/account-individuals/change-return.html
+\nTech stack: Angular, Java, SonarQube, Jenkins, Gittea, Maven, JAX-RS`,
     },
     {
       company: "Canada Revenue Agency",
@@ -135,7 +141,9 @@ export const DATA = {
       logoUrl: "/cra.jpeg",
       start: "Sep 2021",
       end: "Dec 2021",
-      description: "",
+      description: `Developed features and enhanced an internal client-facing web application, creating new dashboard functionalities and resolving bugs to deliver a more robust, user-friendly interface, significantly boosting
+client satisfaction.
+\nTech stack: Angular, Java`,
     },
     {
       company: "Infosys",
@@ -146,7 +154,13 @@ export const DATA = {
       logoUrl: "/infosys.jpg",
       start: "Sep 2018",
       end: "Feb 2020",
-      description: "",
+      description: `•Migrated legacy Java web services to MuleSoft’s Anypoint platform, streamlining data integration and enhancing API connectivity.
+\n•Designed and developed RESTful APIs using Java and MuleSoft Anypoint Platform, enabling efficient communication between disparate systems and reducing integration time by 40%.
+\n•Implemented complex data transformations and mappings using DataWeave 2.0, improving data processing efficiency and accuracy.
+\n•Developed robust exception handling mechanisms in Java to improve error management and system reliability, achieving a 95% reduction in system downtime.
+\n•Optimized Java code and MuleSoft APIs, resulting in a 30% reduction in latency by improving algorithm efficiency, data handling, and system responsiveness.
+\n•Delivered knowledge transfer sessions for newly onboarded members, boosting team efficiency by 30%.
+\n•Tech Stack: Java, JAX-RS, MuleSoft, Anypoint Platform, XML, SQL, IBM DB2, Rabbit MQ`,
     },
   ],
   education: [
