@@ -15,7 +15,7 @@ export const DATA = {
   locationLink: "https://maps.app.goo.gl/rHe1MmGL5xBX8y1T9",
   description: "Software Engineer 👨🏽‍💻 x Music Artist 🎙️🎹🎵",
   summary:
-    "Software engineer[ with 3+ years of full-stack development experience. I pursued a master’s degree in Computer Science and have worked at various tech companies (service and product startup).](#/education) [I am also a passionate vocalist, music producer, and mix engineer.](/music)",
+    "Software engineer[ with 3+ years of full-stack development experience. I pursued a master’s degree in Computer Science and have worked at various tech companies (service and product startup).](#/education) [I am also a passionate vocalist, mix engineer and make music.](/music)",
   avatarUrl: "/me.jpg",
   skills: [
     "Angular",

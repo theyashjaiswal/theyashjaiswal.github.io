@@ -463,7 +463,7 @@ export default function Page() {
                   <div className="flex flex-row flex-wrap gap-1">
                     <p>📚 CS @ Dal 🐯</p>
                     <p> | </p>
-                    <p>📍 🌎 🇮🇳 ✈️ 🇨🇦</p>
+                    <p>📍 🇮🇳 🇨🇦</p>
                   </div>
                   {/* <div className="flex flex-row flex-wrap gap-1 pt-2">
                     <Button style={{
@@ -825,7 +825,7 @@ export default function Page() {
         {isOpen ? (
           <>
             <div className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"></div>
-            <div className="fixed h-[100%]  overflow-hidden left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
+            <div className="fixed h-[100%]  overflow-hidden left-[50%] top-[50%] z-50 grid w-full max-w-md translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
               <div
                 className="fixed right-[0.20rem] top-[0.20rem] hover:text-gray-400"
                 onClick={() => {
@@ -938,7 +938,7 @@ export default function Page() {
               <div className="footer flex flex-row sm:justify-center justify-center w-full items-end">
                 <form
                   id="chat-form"
-                  className={`flex items-center p-2 transition-colors ${
+                  className={`flex items-center justify-center gap-2 p-0 transition-colors ${
                     darkMode ? "bg-gray-800" : ""
                   } relative  w-full`}
                   onSubmit={handleSubmit}
@@ -947,7 +947,7 @@ export default function Page() {
                     type="text"
                     id="user-input"
                     name="message"
-                    className={`flex-1 border px-4 py-2 rounded-full text-sm outline-none  text-${
+                    className={` w-[85%] border px-4 py-2 rounded-lg text-sm outline-none  text-${
                       theme === "dark" ? "white" : "black"
                     } ${
                       theme === "dark"
@@ -975,7 +975,7 @@ export default function Page() {
                     type="submit"
                     className={`send bg-[#0E7AFE] text-${
                       theme === "dark" ? "black" : "white"
-                    } font-semibold w-8 h-8 rounded-full flex items-center justify-center absolute right-4 top-1/2 transform -translate-y-1/2`}
+                    } font-semibold w-8 h-8 rounded-lg flex items-center justify-center relative `}
                   >
                     <ArrowUp
                       className="transition-transform duration-300 ease-in-out hover:text-gray-200"

@@ -1,30 +1,26 @@
 "use client";
 
-import { Metadata } from "next"
-import Image from "next/image"
-import { ScrollArea, ScrollBar } from "@/registry/new-york/ui/scroll-area"
-import { Separator } from "@/registry/new-york/ui/separator"
-import {
-  Tabs,
-  TabsContent,
-} from "@/registry/new-york/ui/tabs"
+import { Metadata } from "next";
+import Image from "next/image";
+import { ScrollArea, ScrollBar } from "@/registry/new-york/ui/scroll-area";
+import { Separator } from "@/registry/new-york/ui/separator";
+import { Tabs, TabsContent } from "@/registry/new-york/ui/tabs";
 
-import { AlbumArtwork } from "./components/album-artwork"
-import { Menu } from "./components/menu"
-import { Sidebar } from "./components/sidebar"
-import { listenNowAlbums, madeForYouAlbums } from "./data/albums"
-import { playlists } from "./data/playlists"
-import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern"
-import { cn } from "@/lib/utils"
-import Particles from "@/components/magicui/particles"
-import { useTheme } from "next-themes"
-import { useState, useEffect } from "react"
-
+import { AlbumArtwork } from "./components/album-artwork";
+import { Menu } from "./components/menu";
+import { Sidebar } from "./components/sidebar";
+import { listenNowAlbums, madeForYouAlbums } from "./data/albums";
+import { playlists } from "./data/playlists";
+import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
+import { cn } from "@/lib/utils";
+import Particles from "@/components/magicui/particles";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 export default function MusicPage() {
   const { theme } = useTheme();
   const [color, setColor] = useState("#ffffff");
- 
+
   useEffect(() => {
     setColor(theme === "dark" ? "#ffffff" : "#000000");
   }, [theme]);
@@ -32,13 +28,13 @@ export default function MusicPage() {
   return (
     <>
       <div className=" md:block pt-4 mt-4">
-      <Particles
-        className="absolute inset-0"
-        quantity={777}
-        ease={80}
-        color={color}
-        refresh
-      />
+        <Particles
+          className="absolute inset-0"
+          quantity={777}
+          ease={80}
+          color={color}
+          refresh
+        />
         <Menu />
         <div className="border-t">
           <div className="bg-background">
@@ -118,21 +114,63 @@ export default function MusicPage() {
                                 height={150}
                               />
                             ))} */}
-      <iframe
-        src="https://open.spotify.com/embed/artist/1f1ET7Hk4FGwZZwZMsFH3z?utm_source=generator&theme=0"
-        width="100%"
-        height="352"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        style={{ borderRadius: '12px' }}
-      ></iframe>
+                            <iframe
+                              src="https://open.spotify.com/embed/artist/1f1ET7Hk4FGwZZwZMsFH3z?utm_source=generator&theme=0"
+                              width="100%"
+                              height="352"
+                              frameBorder="0"
+                              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                              loading="lazy"
+                              style={{ borderRadius: "12px" }}
+                            ></iframe>
+                          </div>
+                          <div>
+                            <iframe
+                              style={{ borderRadius: "12px" }}
+                              src="https://open.spotify.com/embed/track/05deS3VyJhJmdWGwXw9qj8?utm_source=generator&theme=0"
+                              width="100%"
+                              height="352"
+                              frameBorder="0"
+                              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                              loading="lazy"
+                            ></iframe>
+                          </div>
+                          <div className="mt-4 gap-2 flex flex-wrap">
+                            <iframe
+                              width="560"
+                              height="315"
+                              src="https://www.youtube.com/embed/q3nAludGXlg?si=3ZRy1t8gd3Le1Dfr"
+                              title="YouTube video player"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            ></iframe>
+                            <iframe
+                              width="560"
+                              height="315"
+                              src="https://www.youtube.com/embed/l3S5QrFEEkM?si=22LfqtipQW-wZ6G7"
+                              title="YouTube video player"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            ></iframe>
+                            <iframe
+                              width="560"
+                              height="315"
+                              src="https://www.youtube.com/embed/bevzrFmsBBo?si=0HjIIjkZRfolLtdC"
+                              title="YouTube video player"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                            ></iframe>
                           </div>
                           <ScrollBar orientation="horizontal" />
                         </ScrollArea>
                       </div>
                     </TabsContent>
-                    
                   </Tabs>
                 </div>
               </div>
@@ -141,5 +179,5 @@ export default function MusicPage() {
         </div>
       </div>
     </>
-  )
+  );
 }
