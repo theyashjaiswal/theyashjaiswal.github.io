@@ -211,7 +211,7 @@ client satisfaction.
       dates: "Nov 2023 – Dec 2023",
       active: true,
       description:
-        "I crafted a clean and sophisticated responsive landing page.",
+        "I designed and developed a sleek, responsive landing page as part of a technical coding challenge for a US-based startup, showcasing my ability to deliver polished, high-quality web solutions under tight assessment conditions.",
       technologies: ["ReactJS", "Tailwind", "Vercel"],
       links: [
         {
