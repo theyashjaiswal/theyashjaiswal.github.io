@@ -183,6 +183,35 @@ client satisfaction.
   ],
   projects: [
     {
+      title: "Streaming Management Platform - Dashboard UI",
+      href: "https://streamify-speedy-labs.vercel.app/",
+      dates: "Aug 2024 - Sep 2024",
+      active: true,
+      description:
+        "Developed a responsive React dashboard for a fictional music streaming management platform, featuring interactive visualizations and a detailed data table to track user metrics, streams, and revenue.",
+      technologies: [
+        "React.js",
+        "Tailwind",
+        "Shadcn/ui",
+        "React-Tremor",
+        "Vercel",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://streamify-speedy-labs.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/theyashjaiswal/streamify-speedy-labs",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/Streamify.webm",
+    },
+    {
       title: "Saas Product - Landing Page Template",
       href: "https://saas-landing-yash.vercel.app/",
       dates: "July 2024 - Aug 2024",

@@ -3,10 +3,12 @@ node_modules/
 
 # Build output
 .next/
+out/
 
 # Production
 *.log
 *.env
+*.env.*.local
 
 # Local environment
 *.local
@@ -18,3 +20,13 @@ node_modules/
 *.ntvs_analysis.dat
 *.njsproj
 *.sln
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
