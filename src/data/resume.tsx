@@ -183,7 +183,7 @@ client satisfaction.
   ],
   projects: [
     {
-      title: "Streaming Management Platform - Dashboard UI",
+      title: "Streaming Management Platform - Dashboard",
       href: "https://streamify-speedy-labs.vercel.app/",
       dates: "Aug 2024 - Sep 2024",
       active: true,
