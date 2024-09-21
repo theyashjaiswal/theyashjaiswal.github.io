@@ -50,14 +50,15 @@ import InstagramEmbed from "./instagram";
 import { useEffect, useState } from "react";
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import PulsatingButton from "@/components/ui/pulsating-button";
+import { FaLinkedin } from "react-icons/fa";
 
 type FormData = {
   message: string;
 };
 
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.009;
 
 const data = [
   {
@@ -466,18 +467,42 @@ export default function Page() {
                     <p>📍 🇮🇳 🇨🇦</p>
                   </div>
                   {/* <div className="flex flex-row flex-wrap gap-1 pt-2">
-                    <Button style={{
-                      backgroundColor: 'rgb(0, 149, 246)', // Primary button color
-                      color: 'white',
-                    }}
-                      className="hover:bg-blue-600 gap-2 text-white font-bold py-2 px-4 rounded text-xs"
-                      onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgb(24, 119, 242)')}
-                      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'rgb(0, 149, 246)')}
-                      onClick={() => {
-                        window.location.href = 'https://www.instagram.com/theyashjaiswal';
+                    <Button
+                      style={{
+                        backgroundColor: "rgb(0, 149, 246)", // Primary button color
+                        color: "white",
                       }}
-                    >Follow <Instagram className="size-4" /></Button>
+                      className="hover:bg-blue-600 gap-2 text-white font-bold py-2 px-4 rounded text-xs"
+                      onMouseOver={(e) =>
+                        (e.currentTarget.style.backgroundColor =
+                          "rgb(24, 119, 242)")
+                      }
+                      onMouseOut={(e) =>
+                        (e.currentTarget.style.backgroundColor =
+                          "rgb(0, 149, 246)")
+                      }
+                      onClick={() => {
+                        window.location.href =
+                          "https://www.instagram.com/theyashjaiswal";
+                      }}
+                    >
+                      Follow <Instagram className="size-4" />
+                    </Button>
                   </div> */}
+                  <div className="flex flex-row flex-wrap gap-1 pt-2">
+                    <Button
+                      className="bg-[#0A66C2] hover:bg-[#004182] text-white font-bold py-2 px-4 rounded text-xs flex items-center gap-2"
+                      onClick={() => {
+                        window.open(
+                          "https://www.linkedin.com/in/theyashjaiswal",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      <FaLinkedin className="size-4" />
+                      Connect
+                    </Button>
+                  </div>
                 </BlurFade>
               </div>
               <BlurFade delay={BLUR_FADE_DELAY}>
@@ -617,19 +642,14 @@ export default function Page() {
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => {
               return (
-                <>
-                  <BlurFade
+                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                  <Badge
+                    className="w-auto h-9 items-center inline-flex"
                     key={skill}
-                    delay={BLUR_FADE_DELAY * 10 + id * 0.05}
                   >
-                    <Badge
-                      className="w-auto h-9 items-center inline-flex"
-                      key={skill}
-                    >
-                      {skill} &nbsp; {getIconNameFromSkill(skill)}
-                    </Badge>
-                  </BlurFade>
-                </>
+                    {skill} &nbsp; {getIconNameFromSkill(skill)}
+                  </Badge>
+                </BlurFade>
               );
             })}
           </div>
