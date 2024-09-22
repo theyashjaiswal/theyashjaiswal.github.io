@@ -399,6 +399,28 @@ export default function Page() {
     setIsLoaded(false);
   };
 
+  const getColorFromSkill = (skill: string): string => {
+    const skillColors: { [key: string]: string } = {
+      angular: "#dc2626",
+      react: "#3b82f6",
+      "react native": "#2563eb",
+      "next.js": "#000000",
+      typescript: "#3178c6",
+      javascript: "#eab308",
+      "node.js": "#16a34a",
+      java: "#ea580c",
+      python: "#3b82f6",
+      mysql: "#0ea5e9",
+      postgres: "#0284c7",
+      mongodb: "#16a34a",
+      docker: "#2563eb",
+      aws: "#f97316",
+      "google cloud platform": "#ef4444",
+      firebase: "#f59e0b",
+    };
+
+    return skillColors[skill.toLowerCase()] || "#6b7280";
+  };
   const getIconNameFromSkill = (skill: any) => {
     switch (skill.toLowerCase()) {
       case "angular":
@@ -640,18 +662,16 @@ export default function Page() {
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => {
-              return (
-                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                  <Badge
-                    className="w-auto h-9 items-center inline-flex"
-                    key={skill}
-                  >
-                    {skill} &nbsp; {getIconNameFromSkill(skill)}
-                  </Badge>
-                </BlurFade>
-              );
-            })}
+            {DATA.skills.map((skill, id) => (
+              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                <Badge
+                  className="w-auto h-9 items-center inline-flex text-white"
+                  style={{ backgroundColor: getColorFromSkill(skill) }}
+                >
+                  {skill} &nbsp; {getIconNameFromSkill(skill)}
+                </Badge>
+              </BlurFade>
+            ))}
           </div>
         </div>
       </section>
@@ -670,8 +690,10 @@ export default function Page() {
                   </span>
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on variety of projects, from simple websites
-                  to complex web applications. Here are a few of my favorites.
+                  From concept to code, explore my digital playground where
+                  innovation meets implementation. <br />
+                  Each project is a story of challenges conquered and creativity
+                  unleashed.
                 </p>
               </div>
             </div>
