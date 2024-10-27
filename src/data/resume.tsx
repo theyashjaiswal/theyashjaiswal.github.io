@@ -183,6 +183,29 @@ client satisfaction.
   ],
   projects: [
     {
+      title: "Recipe Radar - Recipe Search Platform",
+      href: "https://recipe-radar-three.vercel.app/",
+      dates: "Aug 2024 - Aug 2024",
+      active: true,
+      description:
+        "Built a dynamic, responsive recipe search website that enables users to search, filter by cuisine, and view detailed recipes with ingredients and health info, leveraging Spoonacular API. Includes paginated search results and a detailed recipe page for an enhanced cooking experience.",
+      technologies: ["React.js", "Tailwind", "Shadcn/ui", "Vercel"],
+      links: [
+        {
+          type: "Website",
+          href: "https://recipe-radar-three.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "hhttps://github.com/theyashjaiswal/recipe-radar",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/RecipeRadar.webm",
+    },
+    {
       title: "Streaming Management Platform - Dashboard",
       href: "https://streamify-speedy-labs.vercel.app/",
       dates: "Aug 2024 - Sep 2024",

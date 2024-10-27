@@ -478,10 +478,10 @@ export default function Page() {
                 text={DATA.description}
               /> */}
                 <BlurFade delay={BLUR_FADE_DELAY}>
-                  <div className="flex flex-row flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1">
                     <p>Software Engineer 👨🏽‍💻 </p>
-                    {/*<p>{" | "}</p>
-                  <p>Music Artist 🎙️🎹🎵</p>*/}
+                    <p>{" | "}</p>
+                    <p>Music Artist 🎙️🎹🎵</p>
                   </div>
                   <div className="flex flex-row flex-wrap gap-1">
                     <p>📚 CS @ Dal 🐯</p>
