@@ -28,13 +28,6 @@ export default function MusicPage() {
   return (
     <>
       <div className=" md:block pt-4 mt-4">
-        <Particles
-          className="absolute inset-0"
-          quantity={777}
-          ease={80}
-          color={color}
-          refresh
-        />
         <Menu />
         <div className="border-t">
           <div className="bg-background">
