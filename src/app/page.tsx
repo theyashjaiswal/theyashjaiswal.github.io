@@ -53,6 +53,7 @@ import { useTheme } from "next-themes";
 import { Button, buttonVariants } from "@/components/ui/button";
 import PulsatingButton from "@/components/ui/pulsating-button";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 type FormData = {
   message: string;
@@ -463,12 +464,23 @@ export default function Page() {
           <CoolMode>
             <div className="gap-2 flex justify-space-between">
               <div className="flex-col flex flex-1 space-y-1.5">
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                  yOffset={8}
-                  text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-                />
+                <BlurFade delay={BLUR_FADE_DELAY} yOffset={8}>
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    Hi, I'm {DATA.name.split(" ")[0]}{" "}
+                    <motion.span
+                      className="inline-block origin-bottom-right"
+                      animate={{ rotate: [0, 20, -10, 20, -10, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        repeatDelay: 1,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      👋
+                    </motion.span>
+                  </h1>
+                </BlurFade>
                 {/* <BlurFadeText
                 className="max-w-[600px] md:text-xl"
                 delay={BLUR_FADE_DELAY}
