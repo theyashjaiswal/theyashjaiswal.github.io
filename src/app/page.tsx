@@ -225,19 +225,16 @@ export default function Page() {
       className={`flex items-center justify-end h-10 w-24 bg-gray-200 rounded  order-last  mt-4`}
     >
       <div
-        className={`dot  ${
-          theme === "dark" ? "bg-black" : "bg-gray-400"
-        } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-0`}
+        className={`dot  ${theme === "dark" ? "bg-black" : "bg-gray-400"
+          } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-0`}
       ></div>
       <div
-        className={`dot ${
-          theme === "dark" ? "bg-black" : "bg-gray-400"
-        } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-150`}
+        className={`dot ${theme === "dark" ? "bg-black" : "bg-gray-400"
+          } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-150`}
       ></div>
       <div
-        className={`dot ${
-          theme === "dark" ? "bg-black" : "bg-gray-400"
-        } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-300`}
+        className={`dot ${theme === "dark" ? "bg-black" : "bg-gray-400"
+          } opacity-30 h-3.5 w-3.5 rounded-full mx-2 animate-bounce delay-300`}
       ></div>
     </div>
   );
@@ -535,11 +532,10 @@ export default function Page() {
 
                 <div className="circle size-32" onClick={handleStoryView}>
                   <svg
-                    className={`circle-svg ${
-                      isStoryClicked
-                        ? "animate-spin"
-                        : "animate-none circle-still"
-                    }`}
+                    className={`circle-svg ${isStoryClicked
+                      ? "animate-spin"
+                      : "animate-none circle-still"
+                      }`}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 100 100"
                   >
@@ -603,7 +599,7 @@ export default function Page() {
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-sm dark:prose-invert">
             {DATA.summary}
           </Markdown>
         </BlurFade>
@@ -894,9 +890,8 @@ export default function Page() {
                       />
                     </div>
                     <div
-                      className={`message w-max hidden bg-gray-200 rounded max-w-sm px-2 pt-1 ${
-                        theme === "dark" ? "text-black" : ""
-                      } font-roboto text-base rounded`}
+                      className={`message w-max hidden bg-gray-200 rounded max-w-sm px-2 pt-1 ${theme === "dark" ? "text-black" : ""
+                        } font-roboto text-base rounded`}
                       id="message-1"
                     >
                       <div className="relative rounded leading-5 max-w-1/4 p-2 break-words">
@@ -917,9 +912,8 @@ export default function Page() {
                       />
                     </div>
                     <div
-                      className={`message w-max hidden bg-gray-200 rounded max-w-sm px-2 pt-1 ${
-                        theme === "dark" ? "text-black" : ""
-                      }  font-roboto text-base rounded`}
+                      className={`message w-max hidden bg-gray-200 rounded max-w-sm px-2 pt-1 ${theme === "dark" ? "text-black" : ""
+                        }  font-roboto text-base rounded`}
                       id="message-2"
                     >
                       <div className="relative rounded leading-5 max-w-1/4 p-2 break-words ">
@@ -947,9 +941,8 @@ export default function Page() {
                       />
                     </div>
                     <div
-                      className={`message w-max hidden bg-gray-200 rounded  max-w-sm px-2 pt-1 ${
-                        theme === "dark" ? "text-black" : ""
-                      }  font-roboto text-base rounded`}
+                      className={`message w-max hidden bg-gray-200 rounded  max-w-sm px-2 pt-1 ${theme === "dark" ? "text-black" : ""
+                        }  font-roboto text-base rounded`}
                       id="message-3"
                     >
                       <div className="relative rounded leading-5 max-w-1/4 p-2 break-words">
@@ -980,22 +973,19 @@ export default function Page() {
               <div className="footer flex flex-row sm:justify-center justify-center w-full items-end">
                 <form
                   id="chat-form"
-                  className={`flex items-center justify-center gap-2 p-0 transition-colors ${
-                    darkMode ? "bg-gray-800" : ""
-                  } relative  w-full`}
+                  className={`flex items-center justify-center gap-2 p-0 transition-colors ${darkMode ? "bg-gray-800" : ""
+                    } relative  w-full`}
                   onSubmit={handleSubmit}
                 >
                   <input
                     type="text"
                     id="user-input"
                     name="message"
-                    className={` w-[85%] border px-4 py-2 rounded-lg text-sm outline-none  text-${
-                      theme === "dark" ? "white" : "black"
-                    } ${
-                      theme === "dark"
+                    className={` w-[85%] border px-4 py-2 rounded-lg text-sm outline-none  text-${theme === "dark" ? "white" : "black"
+                      } ${theme === "dark"
                         ? "bg-gray-700 border-gray-600"
                         : "bg-gray-200 border-gray-400"
-                    } transition-colors`}
+                      } transition-colors`}
                     placeholder="Type your message..."
                     value={userMessage}
                     onChange={(e) => {
@@ -1015,9 +1005,8 @@ export default function Page() {
                   />
                   <button
                     type="submit"
-                    className={`send bg-[#0E7AFE] text-${
-                      theme === "dark" ? "black" : "white"
-                    } font-semibold w-8 h-8 rounded-lg flex items-center justify-center relative `}
+                    className={`send bg-[#0E7AFE] text-${theme === "dark" ? "black" : "white"
+                      } font-semibold w-8 h-8 rounded-lg flex items-center justify-center relative `}
                   >
                     <ArrowUp
                       className="transition-transform duration-300 ease-in-out hover:text-gray-200"
@@ -1049,10 +1038,8 @@ export default function Page() {
             <div
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
-                `size-12 hover:text-${
-                  theme == "dark" ? "white" : "dark"
-                } hover:bg-${
-                  theme == "dark" ? "black" : "white"
+                `size-12 hover:text-${theme == "dark" ? "white" : "dark"
+                } hover:bg-${theme == "dark" ? "black" : "white"
                 } transition-transform duration-300 ease-in-out hover:scale-125`
               )}
             >
