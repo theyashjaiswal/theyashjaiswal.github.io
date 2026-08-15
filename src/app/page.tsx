@@ -488,7 +488,7 @@ export default function Page() {
               /> */}
                 <BlurFade delay={BLUR_FADE_DELAY}>
                   <div className="flex flex-wrap gap-1">
-                    <p>Software Engineer 👨🏽‍💻 </p>
+                    <p>Software Engineer 👨🏽‍💻 (6+ years)</p>
                     <p>{" | "}</p>
                     <p>Music Artist 🎙️🎹🎵</p>
                   </div>
